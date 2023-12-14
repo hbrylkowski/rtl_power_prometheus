@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         # build and publish in parallel: linux/386, linux/amd64, linux/arm64, windows/386, windows/amd64, darwin/amd64, darwin/arm64
-        goos: [linux, windows, darwin]
+        goos: [linux, darwin]
         goarch: [amd64, arm64, arm]
     steps:
       - uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
-          goversion: "https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz"
+          goversion: "https://dl.google.com/go/go1.21.4.linux-amd64.tar.gz"
           project_path: "."
           binary_name: "rtl_power_prom"
 #          extra_files: LICENSE README.md
